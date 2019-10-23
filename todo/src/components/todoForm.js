@@ -21,10 +21,7 @@ const TodoForm = (props) => {
 		setValue(e.target.value)
 	}
 
-	const handleClick = (e) =>{
-		e.preventDefault();
-		dispatch({type: 'COMPLETED'})
-	}
+
 
 
 	return(
@@ -40,9 +37,9 @@ const TodoForm = (props) => {
 			</form>
 
 			<div className="todo-list-items" >
-				{props.item.map((todo, index)=>{
+				{props.item.map((todo)=>{
 					return(
-						<TodoItem handler={handleClick} className={state.completed ? "completed" : " "} key={index} info={todo} />
+						<TodoItem className={state.completed ? "completed" : ""} key={todo.id} info={todo} />
 						)
 				})}
 			</div>

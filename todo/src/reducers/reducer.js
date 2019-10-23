@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const initialState = {
+export const initialState = [{
 	item: 'do homework',
 	completed: false,
 	id: new Date()
-}
+}]
 
 
 
@@ -13,15 +13,20 @@ export const reducer = (state, action) => {
 		case "COMPLETED":
 			return {
 				...state,
-				completed: !state.completed
+				completed: !state.completed,
+				id: action.payload
 			}
 		case "ADD":
-			return {
-				...state,
+			return 
+				[...state,
 				
-				data:action.payload
-
-			}
+					{	
+					item: action.payload,
+					completed: false,
+					id: Date.now()
+					}
+				]
+			
 		default:
 			return state
 	}
